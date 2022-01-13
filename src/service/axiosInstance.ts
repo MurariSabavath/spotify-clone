@@ -21,7 +21,10 @@ AxiosInstance.interceptors.request.use(
 
 AxiosInstance.interceptors.response.use(
   (response) => response,
-  (err) => Promise.reject(err),
+  (err) => {
+    if (err.response.status === 401) window.location.href = '/login';
+    return Promise.reject(err);
+  },
 );
 
 export default AxiosInstance;

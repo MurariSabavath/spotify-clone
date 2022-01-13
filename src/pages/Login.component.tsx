@@ -1,3 +1,5 @@
+import { Button, Div } from '../styles/shared';
+
 const Login = () => {
   const { REACT_APP_CLIENT_ID, REACT_APP_AUTHORIZE_URL, REACT_APP_REDIRECT_URL } = process.env;
   const SPACE_DELIMITER = '%20';
@@ -12,6 +14,7 @@ const Login = () => {
     'user-read-currently-playing',
     'user-read-playback-state',
     'playlist-read-private',
+    'user-read-recently-played',
   ];
   const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER);
   const handleLogin = () => {
@@ -19,9 +22,11 @@ const Login = () => {
   };
 
   return (
-    <button type="button" onClick={handleLogin}>
-      Login with spotify
-    </button>
+    <Div>
+      <Button type="button" onClick={handleLogin}>
+        Login with spotify
+      </Button>
+    </Div>
   );
 };
 

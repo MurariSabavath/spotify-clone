@@ -1,16 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Playlist from '../components/Playlist.component';
-import Home from '../pages/Home.component';
-import Login from '../pages/Login.component';
-import Redirect from '../pages/Redirect.component';
+import { Home, Login, Playlist, Playlists, Redirect } from '../pages';
+import Main from './Main.component';
 
 const AppRouter = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
       <Route path="/redirect" element={<Redirect />} />
-      <Route path="/playlist/:id" element={<Playlist />} />
+      <Route element={<Main />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/playlist/:id" element={<Playlist />} />
+        <Route path="/playlists" element={<Playlists />} />
+      </Route>
+      <Route path="/login" element={<Login />} />
     </Routes>
   </BrowserRouter>
 );

@@ -17,9 +17,8 @@ const Redirect = () => {
 
   useEffect(() => {
     const params = getParamValues(window.location.hash);
-    const expiryTime = new Date().getTime() + params.expires_in * 1000;
     localStorage.setItem('params', JSON.stringify(params));
-    localStorage.setItem('expiry_time', expiryTime.toString());
+    console.log(params);
     navigate('/');
   }, []);
 
