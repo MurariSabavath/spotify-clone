@@ -1,7 +1,9 @@
 import { Button, Div } from '../styles/shared';
 
 const Login = () => {
-  const { REACT_APP_CLIENT_ID, REACT_APP_AUTHORIZE_URL, REACT_APP_REDIRECT_URL } = process.env;
+  const { REACT_APP_CLIENT_ID, REACT_APP_AUTHORIZE_URL } = process.env;
+  const path = `${window.location.protocol}//${window.location.host}/redirect`;
+  console.log(path);
   const SPACE_DELIMITER = '%20';
   const SCOPES = [
     'streaming',
@@ -18,7 +20,7 @@ const Login = () => {
   ];
   const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER);
   const handleLogin = () => {
-    window.location.href = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URL}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
+    window.location.href = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${path}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
 
   return (
