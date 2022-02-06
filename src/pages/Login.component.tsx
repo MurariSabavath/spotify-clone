@@ -3,7 +3,6 @@ import { Button, Div } from '../styles/shared';
 const Login = () => {
   const { REACT_APP_CLIENT_ID, REACT_APP_AUTHORIZE_URL } = process.env;
   const path = `${window.location.protocol}//${window.location.host}/redirect`;
-  console.log(path);
   const SPACE_DELIMITER = '%20';
   const SCOPES = [
     'streaming',

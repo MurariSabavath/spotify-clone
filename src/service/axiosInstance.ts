@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from '../routes/browser-history';
 
 const AxiosInstance = axios.create({
   baseURL: 'https://api.spotify.com/v1',
@@ -22,7 +23,7 @@ AxiosInstance.interceptors.request.use(
 AxiosInstance.interceptors.response.use(
   (response) => response,
   (err) => {
-    if (err.response.status === 401) window.location.href = '/login';
+    if (err.response.status === 401) history.push('/login');
     return Promise.reject(err);
   },
 );

@@ -1,9 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Home, Login, Playlist, Playlists, Redirect } from '../pages';
 import Main from './Main.component';
+import history from './browser-history';
+import CustomRouter from './custom-router';
 
 const AppRouter = () => (
-  <BrowserRouter>
+  <CustomRouter history={history}>
     <Routes>
       <Route path="/redirect" element={<Redirect />} />
       <Route element={<Main />}>
@@ -13,7 +15,7 @@ const AppRouter = () => (
       </Route>
       <Route path="/login" element={<Login />} />
     </Routes>
-  </BrowserRouter>
+  </CustomRouter>
 );
 
 export default AppRouter;

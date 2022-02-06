@@ -17,7 +17,6 @@ const Playlists = () => {
     getRequest('/me/playlists')
       .then((resp) => {
         setPlaylistObj(resp);
-        console.log(resp);
       })
       .catch((err) => {
         console.log(err);

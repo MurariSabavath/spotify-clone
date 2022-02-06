@@ -26,7 +26,6 @@ const Main = () => {
   const getUser = () => {
     getRequest('/me')
       .then((resp) => {
-        console.log(resp);
         setUser(resp);
       })
       .catch((err) => {
@@ -40,8 +39,7 @@ const Main = () => {
         store.dispatch({ type: SET_TRACK_URI, track: resp.items[0]?.track.uri });
         setIsLoading(false);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         setIsLoading(false);
       });
   };
