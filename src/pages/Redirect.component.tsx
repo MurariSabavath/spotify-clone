@@ -17,6 +17,7 @@ const Redirect = () => {
 
   useEffect(() => {
     const params = getParamValues(window.location.hash);
+    console.log(JSON.stringify(params));
     localStorage.setItem('params', JSON.stringify(params));
     navigate('/');
   }, []);

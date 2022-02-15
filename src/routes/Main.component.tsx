@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import SpotifyPlayer from 'react-spotify-web-playback';
 import store from '../store/redux-store';
 import Header from '../components/Header.component';
 import { getRequest } from '../service/api';
@@ -9,8 +7,6 @@ import { SET_TRACK_URI } from '../constants/actions';
 
 const Main = () => {
   const navigate = useNavigate();
-  const { trackUri } = useSelector((state: { trackUri: string }) => state);
-  const [acceptToken, setAcceptToken] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({
     display_name: '',
@@ -50,7 +46,6 @@ const Main = () => {
       if (!token) {
         navigate('/login');
       }
-      setAcceptToken(token.access_token);
       getCurrentlyPlaying();
       getUser();
     } catch (err) {
@@ -66,9 +61,6 @@ const Main = () => {
         <>
           <Header userName={user.display_name} userImg={user.images[0].url} />
           <Outlet />
-          <div style={{ position: 'fixed', bottom: '0', width: '100%' }}>
-            <SpotifyPlayer token={acceptToken} uris={[trackUri]} />
-          </div>
         </>
       )}
     </>
