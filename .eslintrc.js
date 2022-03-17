@@ -24,6 +24,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-undef': 'off',
     'no-param-reassign': 'off',
+    'no-unused-vars': 'off',
     'operator-linebreak': ['error', 'after'],
     '@typescript-eslint/no-use-before-define': ['error'],
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx', 'js', 'jsx'] }],
