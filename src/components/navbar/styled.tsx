@@ -12,12 +12,15 @@ export const NavBarContainer = styled.div`
   background: #000000;
   overflow: hidden;
   transition: 0.4s linear;
+  z-index: 1;
+  width: 300px;
+
   > div {
     padding: 10px 30px;
   }
 
   @media (max-width: 768px) {
-    width: ${({ openNavbar }: INavBarContainerProps) => (openNavbar ? '300px' : '0px')};
+    display: none;
   }
 `;
 

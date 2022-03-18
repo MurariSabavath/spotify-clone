@@ -1,11 +1,7 @@
 import { Icon, Line, NavBarContainer, NavBarLayout, NavBarLinks, PageLink } from './styled';
 
-export interface INavBar {
-  openNavbar: Boolean;
-}
-
-const NavBar = ({ openNavbar }: INavBar) => (
-  <NavBarContainer openNavbar={openNavbar}>
+const NavBar = () => (
+  <NavBarContainer>
     <NavBarLayout>
       <a href="/">
         <Icon>

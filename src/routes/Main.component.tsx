@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import store from '../store/redux-store';
-import Header from '../components/Header.component';
 import { getRequest } from '../service/api';
 import { SET_TRACK_URI } from '../constants/actions';
 import NavBar from '../components/navbar';
 import { MainLayout, PageLayout } from './main.style';
+import Header from '../components/header';
+import MobileNavBar from '../components/mobile-navbar';
 
 const Main = () => {
   const navigate = useNavigate();
-  const boxRef = useRef(null);
-  const [openNavbar, setOpenNavbar] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({
     display_name: '',
@@ -44,10 +43,6 @@ const Main = () => {
       });
   };
 
-  const closeOpenMenus = (e: any) => {
-    setOpenNavbar(false);
-  };
-
   useEffect(() => {
     try {
       const token = JSON.parse(localStorage.getItem('params') as string);
@@ -59,9 +54,6 @@ const Main = () => {
     } catch (err) {
       navigate('/login');
     }
-    document.addEventListener('mousedown', closeOpenMenus);
-
-    return () => document.removeEventListener('mousedown', closeOpenMenus);
   }, []);
 
   return (
@@ -71,18 +63,12 @@ const Main = () => {
       ) : (
         <>
           <PageLayout>
-            <NavBar openNavbar={openNavbar} />
-            <div ref={boxRef}>
-              <MainLayout>
-                <Header
-                  userName={user.display_name}
-                  userImg={user.images[0].url}
-                  openNavbar={openNavbar}
-                  setOpenNavbar={setOpenNavbar}
-                />
-                <Outlet />
-              </MainLayout>
-            </div>
+            <NavBar />
+            <MainLayout>
+              <Header userName={user.display_name} userImg={user.images[0].url} />
+              <Outlet />
+            </MainLayout>
+            <MobileNavBar />
           </PageLayout>
         </>
       )}
