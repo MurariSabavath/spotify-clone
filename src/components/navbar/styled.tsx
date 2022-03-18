@@ -41,12 +41,12 @@ export const PageLink = styled.a`
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  margin-block: 20px;
   display: flex;
+  padding-block: 10px;
   align-items: center;
 
   svg {
-    margin-right: 20px;
+    padding-right: 20px;
   }
 `;
 

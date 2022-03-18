@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { PageLink } from '../navbar/styled';
 
 export const NavContainer = styled.div`
   position: fixed;
@@ -14,4 +15,9 @@ export const NavContainer = styled.div`
   }
 `;
 
-export const NavLayout = styled.div``;
+export const MobileNavLink = styled(PageLink)`
+  svg {
+    margin: 0;
+    padding: 10px;
+  }
+`;

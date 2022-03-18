@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Home, Login, Playlist, Playlists, Redirect } from './pages';
-import Main from './routes/app-router.component';
+import Main from './routes/main.component';
 import CustomRouter from './routes/custom-router';
 import history from './routes/browser-history';
 
