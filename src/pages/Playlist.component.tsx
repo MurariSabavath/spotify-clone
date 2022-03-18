@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { SET_TRACK_URI } from '../constants/actions';
 import { IPlaylistTracks } from '../constants/types';
 import { getRequest } from '../service/api';
-import store from '../store/redux-store';
+import TrackList from '../components/track-list';
 
 const Playlist = () => {
   const { id } = useParams();
@@ -21,25 +20,22 @@ const Playlist = () => {
       });
   }, []);
 
-  const playHandler = (trackUri: string) => {
-    store.dispatch({ type: SET_TRACK_URI, track: trackUri });
-  };
-
   return (
     <div>
       {isLoading ? (
         'Loading'
       ) : (
         <>
-          {playlistTracks?.items.map(({ track }) => (
-            <div key={track.id}>
-              <img src={track.album.images[2].url} alt="" />
-              <button type="button" onClick={() => playHandler(track?.uri)}>
-                {track.name}
-              </button>
-              <p>{track.name}</p>
-            </div>
-          ))}
+          <>
+            {playlistTracks?.items.map((item, index) => (
+              <TrackList
+                key={item.track.id}
+                added_at={item.added_at}
+                track={item.track}
+                index={index}
+              />
+            ))}
+          </>
         </>
       )}
     </div>

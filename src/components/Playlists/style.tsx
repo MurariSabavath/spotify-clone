@@ -6,13 +6,18 @@ export const PlaylistComponent = styled.div`
 `;
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  overflow: scroll;
+  display: flex;
   background: #121212;
   margin-bottom: 80px;
   padding-block: 10px;
   min-height: 250px;
   height: 100%;
+
+  ::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
 `;
 
 export const Button = styled.button``;

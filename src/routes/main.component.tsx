@@ -57,22 +57,14 @@ const Main = () => {
   }, []);
 
   return (
-    <>
-      {isLoading ? (
-        'loading'
-      ) : (
-        <>
-          <PageLayout>
-            <NavBar />
-            <MainLayout>
-              <Header userName={user.display_name} userImg={user.images[0].url} />
-              <Outlet />
-            </MainLayout>
-            <MobileNavBar />
-          </PageLayout>
-        </>
-      )}
-    </>
+    <PageLayout>
+      <NavBar />
+      <MainLayout>
+        <Header userName={user.display_name} userImg={user.images[0].url} />
+        <Outlet />
+      </MainLayout>
+      <MobileNavBar />
+    </PageLayout>
   );
 };
 

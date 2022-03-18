@@ -29,6 +29,14 @@ export interface IAlbum {
   uri: string;
 }
 
+export interface IArtist {
+  href: string;
+  id: string;
+  name: string;
+  type: string;
+  uri: string;
+}
+
 export interface ITrack {
   album: IAlbum;
   artists: [];
