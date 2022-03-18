@@ -4,7 +4,7 @@ import store from '../store/redux-store';
 import Header from '../components/Header.component';
 import { getRequest } from '../service/api';
 import { SET_TRACK_URI } from '../constants/actions';
-import NavBar from '../components/nav-bar';
+import NavBar from '../components/navbar';
 import { MainLayout, PageLayout } from './main.style';
 
 const Main = () => {
