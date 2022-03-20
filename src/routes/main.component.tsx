@@ -57,14 +57,14 @@ const Main = () => {
   }, []);
 
   return (
-    <PageLayout>
+    <>
       <NavBar />
       <MainLayout>
         <Header userName={user.display_name} userImg={user.images[0].url} />
         <Outlet />
       </MainLayout>
       <MobileNavBar />
-    </PageLayout>
+    </>
   );
 };
 

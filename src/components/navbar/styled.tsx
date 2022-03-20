@@ -6,14 +6,15 @@ export interface INavBarContainerProps {
 
 export const NavBarContainer = styled.div`
   position: fixed;
+  top: 0;
+  left: 0;
   height: 100%;
   padding-top: 20px;
   width: 300px;
   background: #000000;
   overflow: hidden;
-  transition: 0.4s linear;
   z-index: 1;
-  width: 300px;
+  overflow-x: hidden;
 
   > div {
     padding: 10px 30px;
